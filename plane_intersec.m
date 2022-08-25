@@ -15,7 +15,7 @@ function vec_intersec = plane_intersec(r1, m1, r2, m2)
   cross_product = cross(vec1,vec2);
   
   % para deixar unitário divide o cross pela magnitude
-  vec_intersec = cross_product/norm(cross_product)
+  vec_intersec = cross_product/norm(cross_product);
   
   l = vec_intersec(1);
   m = vec_intersec(2);

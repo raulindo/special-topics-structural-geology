@@ -7,6 +7,7 @@ function lin = cossdir2line(vec)
  % Primeiro passo, teste se a linha está aponatando para cima ou para baixo
  % se n é positivo, está aponatando para cima e por isso jogamos ele para
  % baixo multiplicando por -1
+
  if vec(3)>0
      vec = -1*vec;
      l = vec(1); m = vec(2); n = vec(3);
@@ -51,17 +52,17 @@ function lin = cossdir2line(vec)
  
  if  l<0 && m<0
      % estamos no terceiro quadrante
-     trend = atand(l/m);
+     trend = atand(l/m)+180;
  end
  
  if l<0 && m>0
      % estamos no quarto quadrante
-     trend = atand(l/m);
+     trend = atand(l/m)+360;
  end
  
  
  lin = [trend plunge];
  % Now print its value to the command window.
- fprintf('a linha é (%.0f,%.0f)', trend,plunge)
+ fprintf('a linha é (%3.0f,%.1f)\n--------------------------\n', trend,plunge)
 
 end
