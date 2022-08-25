@@ -2,7 +2,7 @@
 % the angles alpha, beta and gamma;
 % input vector has to be [l m n]
 
-function vec = linea_ngles(vec_input)
+function vec = line_angles(vec_input)
 
     alpha = acosd(vec_input(1));
     beta = acosd(vec_input(2));
