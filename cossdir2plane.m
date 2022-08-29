@@ -13,65 +13,57 @@ function plane = cossdir2plane(vec)
      % se n é positivo, está aponatando para cima e por isso jogamos ele para
      % baixo multiplicando por -1
     
-     if vec(3)>0
-         vec = -1*vec;
-         l = vec(1); m = vec(2); n = vec(3);
-     else
-         l = vec(1); m = vec(2); n = vec(3);
-         
-     end
-
+     l = vec(1); m = vec(2); n = vec(3);
+     
      % Plunge
      % n = cosd(M);
-     plunge = acosd(n);
+     dip = acosd(n);
      
-     % Trend
+     % dipdir
      % l = sind(R) * sind(M); - E
      % m = cosd(R) * sind(M); - N
      
-     if m==0 % quer dizer que trend é Oeste-Leste
+     if m==0 % quer dizer que dip dir é Oeste-Leste
          if l>0
-             trend = 90;
+             dipdir = 90;
          else
-             trend = 270;
+             dipdir = 270;
          end
      end
          
-     if l==0 % quer dizer que trend é norte-sul
+     if l==0 % quer dizer que dipdir é norte-sul
          if m>0
-             trend = 0;
+             dipdir = 0;
          elseif m<0
-             trend = 180;
+             dipdir = 180;
          end
      end
      
      if l>0 && m>0
          % estamos no primeiro quadrante
-         trend = atand(l/m);
+         dipdir = atand(l/m);
      end
      
      if l>0 && m<0
          % estamos no segundo quadrante
-         trend = atand(l/m)+180;
+         dipdir = atand(l/m)+180;
      end
      
      if  l<0 && m<0
          % estamos no terceiro quadrante
-         trend = atand(l/m)+180;
+         dipdir = atand(l/m)+180;
      end
      
      if l<0 && m>0
          % estamos no quarto quadrante
-         trend = atand(l/m)+360;
+         dipdir = atand(l/m)+360;
      end
      
      
-     lin = [trend plunge];
+     plane = [dipdir dip];
      % Now print its value to the command window.
-     fprintf('a linha é (%3.0f,%.1f)\n--------------------------\n', trend,plunge)
+     fprintf('o plano é (%3.0f,%.1f)\n--------------------------\n', dipdir,dip)
     
-    end
+ end
 
 
-    
-end
