@@ -17,6 +17,13 @@ function vec_intersec = plane_intersec(r1, m1, r2, m2)
   % para deixar unitário divide o cross pela magnitude
   vec_intersec = cross_product/norm(cross_product);
   
+  % testa se a linha está pra cima, como o sistema de coordenadas
+  % caso esteja pra cima, o z será positivo e precisamos jogar para baixo
+  % multiplicando por -1
+  if vec_intersec(3)>0
+      vec_intersec = -vec_intersec;
+  end
+      
   l = vec_intersec(1);
   m = vec_intersec(2);
   n = vec_intersec(3);

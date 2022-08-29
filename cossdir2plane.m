@@ -13,7 +13,13 @@ function plane = cossdir2plane(vec)
      % se n é positivo, está aponatando para cima e por isso jogamos ele para
      % baixo multiplicando por -1
     
-     l = vec(1); m = vec(2); n = vec(3);
+      if vec(3)<0
+        vec = -1*vec;
+        l = vec(1); m = vec(2); n = vec(3);
+      else
+        l = vec(1); m = vec(2); n = vec(3);
+     
+      end
      
      % Plunge
      % n = cosd(M);
@@ -62,7 +68,7 @@ function plane = cossdir2plane(vec)
      
      plane = [dipdir dip];
      % Now print its value to the command window.
-     fprintf('o plano é (%3.0f,%.1f)\n--------------------------\n', dipdir,dip)
+     fprintf('o plano � (%3.0f,%.1f)\n--------------------------\n', dipdir,dip)
     
  end
 
