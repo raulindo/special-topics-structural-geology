@@ -2,23 +2,27 @@
 % entrada: plano (dipdir,dip e matriz de tensões)
 % no caso, como a matriz é simétrica, apenas 6 elementos são necessários
 % (considerar o nosso sistema de referência:
-% x = E y = N z = vertical para cima )
+% x = E; y = N; z = vertical para cima
 
-xx = -20 ; xy = 0 ; xz = 0;
-yx = xy ; yy = 00 ; yz = 00;
-zx = xz ; zy = yz ; zz = 0;
+xx = -10 ; xy = 0 ; xz = 0;
+yx = xy ; yy = -10 ; yz = 00;
+zx = xz ; zy = yz ; zz = -10;
 
+% construcao da matriz de Cauchy
 stress_matrix = [xx xy xz;
                  yx yy yz;
                  zx zy zz];
              
-dipdir = 180;
-dip = 90;
+% dados do plano de entrada
+dipdir = 90;
+dip = 45;
 
+% calcula o polo do plano com a função construída
 pole = plane2cossdir(dipdir, dip, false); % o resultado é um vetor do polo 1x3
 pole = reshape(pole,3,1); % reshape do pole saindo de 1x3 para 3x1
 
-s = stress_matrix*pole; % esse é o vetor tensão da matriz de stress no plano dado
+% "s" - é o vetor tensão da matriz de stress no plano dado
+s = stress_matrix*pole; 
 fprintf('O vetor total tração [%.2f;%0.2f;%0.2f]\n', s(1),s(2),s(3))
 fprintf('A magnitude do vetor tração é %.2f Mpa\n', norm(s)) % calcula e imprime a magnitude do vetor total usando norm()
 % transforma o vetor tração em atitude novamente
