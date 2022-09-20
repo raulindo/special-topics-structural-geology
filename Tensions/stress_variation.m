@@ -15,5 +15,6 @@ plot(stress, prof/1000, 'linewidth', 1, 'color','r')
 
 
 set(gca, 'XAxisLocation','top', 'YDir','reverse') % invert y axis
+legend({'Hidrostática','Litostática'},'Location','northeast')
 xlabel('tensão vertical (MPa)')
 ylabel('profundidade (km)')
