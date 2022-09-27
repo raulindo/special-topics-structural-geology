@@ -33,4 +33,5 @@ fprintf('- O elongamento é de: e=%0.4f\n', elongation)
 
 % Calcula a orientação geológica da linha transformada
 fprintf('-----------------------\n')
+% função de conversão de cossenos diretores para atitude geologica
 cossdir2line(line2);

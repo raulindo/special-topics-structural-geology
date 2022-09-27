@@ -6,10 +6,10 @@ height=500;
 set(gcf,'position',[x0,y0,width,height])
 
 % Define Transformation Matrix
-a = 1;
-b = 1;
-c = 0;
-d = 1;
+a = 0.8;
+b = 0.2;
+c = 0.2;
+d = 0.5;
 
 F = [a b; c d];
 det(F)
@@ -24,8 +24,8 @@ plot(Xs, Ys, 'b-', 'LineWidth', 2);
 hold on;
 grid on;
 % Transform coordinates Square
-xs = (Xs + 2*Ys);
-ys = Ys;
+xs = a*Xs + b*Ys;
+ys = c*Xs + d*Ys;
 plot(xs, ys, 'r-', 'LineWidth', 2);
 % change figure aspect ratio
 pbaspect([2 2 1])
@@ -45,8 +45,8 @@ subplot(1,2,2)
 plot (Xc,Yc,'b','LineWidth', 2);
 hold on;
 % Transform coordinates Square
-xc = Xc+2*Yc;
-yc = Yc;
+xc = a*Xc + b*Yc;
+yc = c*Xc + d*Yc;
 plot(xc, yc, 'r-', 'LineWidth', 2);
 % change figure aspect ratio
 pbaspect([2 2 1])
