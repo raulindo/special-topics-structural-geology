@@ -5,6 +5,11 @@
 % x = E; y = N; z = vertical para cima
 
 <<<<<<< HEAD
+xx = 100 ; xy = 0 ; xz = 0;
+yx = xy ; yy = 50 ; yz = 00;
+zx = xz ; zy = yz ; zz = 0;
+=======
+<<<<<<< HEAD
 xx = -20 ; xy = 0 ; xz = 0;
 yx = xy ; yy = 20; yz = 00;
 zx = xz ; zy = yz ; zz = 0;
@@ -13,6 +18,7 @@ xx = -10 ; xy = 0 ; xz = 0;
 yx = xy ; yy = -10 ; yz = 00;
 zx = xz ; zy = yz ; zz = -10;
 >>>>>>> 56a606eb1e90e3a1b7850217e94ee428879e3f31
+>>>>>>> 6837b970f44bc8e991eca29b83daf5ae190d1480
 
 % construcao da matriz de Cauchy
 stress_matrix = [xx xy xz;
@@ -26,8 +32,8 @@ dip = 90;
 pole = plane2cossdir(dipdir, dip, false); % o resultado e um vetor do polo 1x3
 =======
 % dados do plano de entrada
-dipdir = 90;
-dip = 45;
+dipdir = 150;
+dip = 90;
 
 % calcula o polo do plano com a função construída
 pole = plane2cossdir(dipdir, dip, false); % o resultado é um vetor do polo 1x3
